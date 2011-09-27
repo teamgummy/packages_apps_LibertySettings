@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/pc_tweaks"
+		android:key="pc_tweaks">
+		<PreferenceScreen android:key="init_d"
+			android:title="@string/pt_init_d" android:summary="@string/ps_init_d">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.InitD" />
+		</PreferenceScreen>
+	</PreferenceCategory>
+</PreferenceScreen>
