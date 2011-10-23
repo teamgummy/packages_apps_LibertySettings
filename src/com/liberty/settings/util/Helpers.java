@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -183,5 +185,20 @@ public class Helpers {
 		if (c != null && msg != null) {
 			msgLong(c, msg);
 		}
+	}
+	
+	public static boolean isPackageInstalled(final String packageName,
+			final PackageManager pm)
+	{
+		String mVersion;
+		try {
+			mVersion = pm.getPackageInfo(packageName, 0).versionName;			
+			if (mVersion.equals(null)) {
+				return false;
+			}
+		} catch (NameNotFoundException e) {
+			return false;
+		}		
+		return true;
 	}
 }
