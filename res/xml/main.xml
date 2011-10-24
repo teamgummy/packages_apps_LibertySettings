@@ -10,10 +10,18 @@
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="com.liberty.customizer" android:targetClass="com.liberty.customizer.MainActivity" />
 		</PreferenceScreen>
+		<PreferenceScreen android:key="pulldown_text" android:title="Pulldown Text"
+			android:summary="Change what the pulldown bar text says">
+		</PreferenceScreen>
 		<PreferenceScreen android:key="init_d" android:title="@string/pt_init_d"
 			android:summary="@string/ps_init_d">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.InitD" />
+		</PreferenceScreen>
+		<PreferenceScreen android:key="dsp_manager" android:title="DSP Manager"
+			android:summary="A stand alone equalizer">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.bel.android.dspmanager" android:targetClass="com.bel.android.dspmanager.activity.DSPManager" />
 		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

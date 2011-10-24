@@ -13,32 +13,38 @@ public final class R {
     public static final class drawable {
         public static final int icon=0x7f020000;
     }
+    public static final class id {
+        public static final int EditTextDialogEntry=0x7f060000;
+    }
+    public static final class layout {
+        public static final int edittext_dialog=0x7f030000;
+    }
     public static final class string {
-        public static final int app_name=0x7f040000;
-        public static final int pc_init_d=0x7f040002;
-        public static final int pc_init_d_tweaks=0x7f040003;
-        public static final int pc_tweaks=0x7f040001;
-        public static final int ps_clear_cache=0x7f040013;
-        public static final int ps_enable_cron=0x7f040015;
-        public static final int ps_enable_init_d=0x7f04000e;
-        public static final int ps_enable_sd_boost=0x7f040010;
-        public static final int ps_enable_sysctl=0x7f040014;
-        public static final int ps_fix_permissions=0x7f040012;
-        public static final int ps_init_d=0x7f04000d;
-        public static final int ps_sd_boost=0x7f040011;
-        public static final int ps_zipalign=0x7f04000f;
-        public static final int pt_clear_cache=0x7f04000a;
-        public static final int pt_enable_cron=0x7f04000c;
-        public static final int pt_enable_init_d=0x7f040005;
-        public static final int pt_enable_sd_boost=0x7f040007;
-        public static final int pt_enable_sysctl=0x7f04000b;
-        public static final int pt_fix_permissions=0x7f040009;
-        public static final int pt_init_d=0x7f040004;
-        public static final int pt_sd_boost=0x7f040008;
-        public static final int pt_zipalign=0x7f040006;
+        public static final int app_name=0x7f050000;
+        public static final int pc_init_d=0x7f050002;
+        public static final int pc_init_d_tweaks=0x7f050003;
+        public static final int pc_tweaks=0x7f050001;
+        public static final int ps_clear_cache=0x7f050013;
+        public static final int ps_enable_cron=0x7f050015;
+        public static final int ps_enable_init_d=0x7f05000e;
+        public static final int ps_enable_sd_boost=0x7f050010;
+        public static final int ps_enable_sysctl=0x7f050014;
+        public static final int ps_fix_permissions=0x7f050012;
+        public static final int ps_init_d=0x7f05000d;
+        public static final int ps_sd_boost=0x7f050011;
+        public static final int ps_zipalign=0x7f05000f;
+        public static final int pt_clear_cache=0x7f05000a;
+        public static final int pt_enable_cron=0x7f05000c;
+        public static final int pt_enable_init_d=0x7f050005;
+        public static final int pt_enable_sd_boost=0x7f050007;
+        public static final int pt_enable_sysctl=0x7f05000b;
+        public static final int pt_fix_permissions=0x7f050009;
+        public static final int pt_init_d=0x7f050004;
+        public static final int pt_sd_boost=0x7f050008;
+        public static final int pt_zipalign=0x7f050006;
     }
     public static final class xml {
-        public static final int init_d=0x7f030000;
-        public static final int main=0x7f030001;
+        public static final int init_d=0x7f040000;
+        public static final int main=0x7f040001;
     }
 }
