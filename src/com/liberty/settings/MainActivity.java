@@ -83,17 +83,15 @@ public class MainActivity extends PreferenceActivity implements OnPreferenceClic
 					final String newText = pulldownText.getText().toString();
 					mCmdProcessor.su.runWaitFor("busybox sed -i 's|ro.pulldown.text=.*|ro.pulldown.text="+newText+"|' /system/build.prop");
 					mCmdProcessor.su.runWaitFor("setprop ro.pulldown.text \"" + newText + "\"");
-					// some reason setprop doesn't like to work so we will have to reboot :(
-					//mCmdProcessor.su.runWaitFor("killall com.android.systemui");
 					new AlertDialog.Builder(MainActivity.this)
-					.setTitle("Reboot Required")
-					.setMessage("A reboot is required for your pulldown text to change.\n\nReboot now?")
-					.setPositiveButton("Yes, Reboot", new DialogInterface.OnClickListener() {
+					.setTitle("Restart Status Bar")
+					.setMessage("For changes to take affect the status bar needs to be restarted.\n\nRestart now?")
+					.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int whichButton) {					
-							mCmdProcessor.su.runWaitFor("busybox killall system_server");
+							mCmdProcessor.su.runWaitFor("busybox killall com.android.systemui");
 						}
 					})
-					.setNegativeButton("Reboot later", new DialogInterface.OnClickListener() {
+					.setNegativeButton("No", new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int whichButton) {
 						}
 					})
