@@ -7,7 +7,6 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
@@ -17,7 +16,6 @@ import com.liberty.settings.util.Helpers;
 public class Performance extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
 	public static final String TAG = "Performance";
-	public static final String KEY_CAT_SYSCTL = "sysctl_conf_category";
 	public static final String KEY_MAX_CPU = "max_cpu";
 	public static final String KEY_MIN_CPU = "min_cpu";
 	public static final String KEY_GOV = "gov";
@@ -93,13 +91,7 @@ public class Performance extends PreferenceActivity implements OnSharedPreferenc
 		mFreeMem = (ListPreference) findPreference(KEY_MINFREE);
 		mFreeMem.setValue(closestValue);
 		mFreeMem.setSummary(getString(R.string.ps_free_memory, minFree+"mb"));
-		
-		if (!new File("/system/xbin/sysctl").exists() && !new File("/system/bin/sysctl").exists()) {
-			PreferenceCategory mSysctlCat = (PreferenceCategory) findPreference(KEY_CAT_SYSCTL);
-			mSysctlCat.removeAll();
-			mSysctlCat.setTitle("");
-		}
-		
+
 		doneLoading = true;
 	}
 

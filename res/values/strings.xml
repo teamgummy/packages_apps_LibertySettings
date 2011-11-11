@@ -13,6 +13,14 @@
 	<string name="pc_init_d_tweaks">Customize Tweaks</string>
 
 	<!-- Preference Titles -->
+	<!-- Main -->
+	<string name="pt_performance">Performance</string>
+	<string name="pt_customization">Customization</string>
+	<!-- Customization -->
+	<string name="pt_liberty_customizer">Liberty Customizer</string>
+	<string name="pt_lockscreen">Lockscreen Settings</string>
+	<string name="pt_pulldown_text">Pulldown Text</string>
+	<!-- Start up tweaks -->
 	<string name="pt_init_d">Start-up Tweaks</string>
 	<string name="pt_enable_init_d">Enable start-up tweaks</string>
 	<string name="pt_zipalign">Zipalign apks</string>
@@ -33,6 +41,14 @@
 	<string name="pt_cpu_boot">Set at boot</string>
 	
 	<!-- Preference Summaries -->
+	<!-- Main -->
+	<string name="ps_performance">Set cpu, free memory &amp; customize start-up settings.</string>
+	<string name="ps_customization">Customize the lockscreen &amp; status bar. Install blur/aosp apps with Liberty Customizer</string>
+	<!-- Customization -->
+	<string name="ps_liberty_customizer">Customize the ROM to your liking</string>
+	<string name="ps_lockscreen">Change lockscreen styles and manage widgets</string>
+	<string name="ps_pulldown_text">Change the text in the pulldown bar.</string>
+	<!-- Start up tweaks -->
 	<string name="ps_init_d">Configure tweaks that are run at boot
 		(init.d)</string>
 	<string name="ps_enable_init_d">Enable/disabe start-up tweaks</string>

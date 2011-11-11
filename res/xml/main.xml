@@ -2,22 +2,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory android:title="General Settings"
 		android:key="general">
-		<PreferenceScreen android:key="performance" android:title="Performance"
-			android:summary="Set CPU, customize start-up tweaks, free memory, etc.">
+		<PreferenceScreen android:key="customization" android:title="@string/pt_customization"
+			android:summary="@string/ps_customization">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.Customizer" />
+		</PreferenceScreen>
+		<PreferenceScreen android:key="performance" android:title="@string/pt_performance"
+			android:summary="@string/ps_performance">
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.Performance" />
 		</PreferenceScreen>
-		<PreferenceScreen android:key="lockscreen" android:title="Lockscreen Settings"
-			android:summary="Customize the lockscreen">
-		</PreferenceScreen>
-		<PreferenceScreen android:key="customizer" android:title="Liberty Customizer"
-			android:summary="Customize the ROM to your liking">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="com.liberty.customizer" android:targetClass="com.liberty.customizer.MainActivity" />
-		</PreferenceScreen>
-		<PreferenceScreen android:key="pulldown_text" android:title="Pulldown Text"
-			android:summary="Change what the pulldown bar text says">
-		</PreferenceScreen>		
 		<PreferenceScreen android:key="dsp_manager" android:title="DSP Manager"
 			android:summary="A stand alone equalizer">
 			<intent android:action="android.intent.action.MAIN"
