@@ -2,10 +2,17 @@
 <resources>
 	<string name="app_name">Liberty Settings</string>
 
+	<!-- Dialog Titles -->
+	<string name="dt_free_memory">Minfree Taskkiller</string>
+	
+	<!-- Preference Categories -->
+	<string name="prefcat_cpu">Set CPU</string>
+	<string name="prefcat_free_memory">Free Memory</string>
 	<string name="pc_tweaks">Tweaks</string>
 	<string name="pc_init_d">Enable/Disable Tweaks</string>
 	<string name="pc_init_d_tweaks">Customize Tweaks</string>
 
+	<!-- Preference Titles -->
 	<string name="pt_init_d">Start-up Tweaks</string>
 	<string name="pt_enable_init_d">Enable start-up tweaks</string>
 	<string name="pt_zipalign">Zipalign apks</string>
@@ -15,7 +22,17 @@
 	<string name="pt_clear_cache">Clear cache</string>
 	<string name="pt_enable_sysctl">Enable sysctl</string>
 	<string name="pt_enable_cron">Enable scheduled tasks</string>
+	<!-- Performance -->
+	<string name="pt_set_cpu_activity">Set cpu</string>
+	<string name="pt_free_memory">Free memory</string>
+	<string name="pt_free_memory_boot">Set at boot</string>
+	<!-- Cpu -->
+	<string name="pt_set_max">Max cpu</string>
+	<string name="pt_set_min">Min cpu</string>
+	<string name="pt_set_gov">Scaling governor</string>
+	<string name="pt_cpu_boot">Set at boot</string>
 	
+	<!-- Preference Summaries -->
 	<string name="ps_init_d">Configure tweaks that are run at boot
 		(init.d)</string>
 	<string name="ps_enable_init_d">Enable/disabe start-up tweaks</string>
@@ -26,4 +43,20 @@
 	<string name="ps_clear_cache">Clear data cache on each boot</string>
 	<string name="ps_enable_sysctl">Enable sysctl tweaks on boot</string>
 	<string name="ps_enable_cron">Enable scheduled cron jobs</string>
+	<!-- CPU -->
+	<string name="ps_set_max">Set max cpu scaling frequency\nCurrent: %s</string>
+	<string name="ps_set_min">Set min cpu scaling frequency\nCurrent: %s</string>
+	<string name="ps_set_gov">Set current scaling governor\nCurrent: %s</string>
+	<string name="ps_cpu_boot">Apply cpu at boot</string>
+	<!-- Performance -->
+	<string name="ps_set_cpu_activity">Set min/max frequencies and scaling governor
+	</string>
+	<string name="ps_free_memory">Amount of ram the minfree taskkiller will keep |
+		Current: %s</string>
+	<string name="ps_free_memory_boot">Apply the amount above at boot</string>
+	
+	<!-- Toast Messages -->
+	<string name="toast_min_max_error01">Max cpu cannot be lower than min cpu</string>
+	<string name="toast_min_max_error02">Min cpu cannot be higher than max cpu</string>
+	
 </resources>

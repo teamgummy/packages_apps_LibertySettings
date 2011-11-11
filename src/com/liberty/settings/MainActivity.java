@@ -1,6 +1,8 @@
 package com.liberty.settings;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -69,7 +71,7 @@ public class MainActivity extends PreferenceActivity implements OnPreferenceClic
 					"am start -a android.intent.action.MAIN -n org.cvpcs.android.gem_settings/.activities.GEMSettings");
 		} else if (key.equals("pulldown_text")) {
 
-			final String current_text = mCmdProcessor.su.runWaitFor("getprop ro.pulldown.text").stdout;
+			final String current_text = getPulldownText();
 			LayoutInflater factory = LayoutInflater.from(this);
 			final View textEntryView = factory.inflate(R.layout.edittext_dialog, null);
 			final EditText pulldownText = (EditText) textEntryView.findViewById(R.id.EditTextDialogEntry);
@@ -81,8 +83,10 @@ public class MainActivity extends PreferenceActivity implements OnPreferenceClic
 			.setPositiveButton("Apply", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int whichButton) {					
 					final String newText = pulldownText.getText().toString();
+					Helpers.getMount("rw");
 					mCmdProcessor.su.runWaitFor("busybox sed -i 's|ro.pulldown.text=.*|ro.pulldown.text="+newText+"|' /system/build.prop");
 					mCmdProcessor.su.runWaitFor("setprop ro.pulldown.text \"" + newText + "\"");
+					Helpers.getMount("ro");
 					new AlertDialog.Builder(MainActivity.this)
 					.setTitle("Restart Status Bar")
 					.setMessage("For changes to take affect the status bar needs to be restarted.\n\nRestart now?")
@@ -106,6 +110,22 @@ public class MainActivity extends PreferenceActivity implements OnPreferenceClic
 		}
 		return false;
 	}
+	
+	private static String getPulldownText() {
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("/system/build.prop"));
+			String line;
+			while(reader.ready()){
+				line = reader.readLine();
+				if (line.startsWith("ro.pulldown.text")) {
+					return (line.substring(line.lastIndexOf("=")+1));
+				}	
+			}
+		} catch (IOException e) { }
+		
+		return ( mCmdProcessor.su.runWaitFor("getprop ro.pulldown.text").stdout );
+	}
+	
 	
 	
 }

@@ -2,6 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory android:title="General Settings"
 		android:key="general">
+		<PreferenceScreen android:key="performance" android:title="Performance"
+			android:summary="Set CPU, customize start-up tweaks, free memory, etc.">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.Performance" />
+		</PreferenceScreen>
 		<PreferenceScreen android:key="lockscreen" android:title="Lockscreen Settings"
 			android:summary="Customize the lockscreen">
 		</PreferenceScreen>
@@ -12,12 +17,7 @@
 		</PreferenceScreen>
 		<PreferenceScreen android:key="pulldown_text" android:title="Pulldown Text"
 			android:summary="Change what the pulldown bar text says">
-		</PreferenceScreen>
-		<PreferenceScreen android:key="init_d" android:title="@string/pt_init_d"
-			android:summary="@string/ps_init_d">
-			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.InitD" />
-		</PreferenceScreen>
+		</PreferenceScreen>		
 		<PreferenceScreen android:key="dsp_manager" android:title="DSP Manager"
 			android:summary="A stand alone equalizer">
 			<intent android:action="android.intent.action.MAIN"
