@@ -1,14 +1,12 @@
 package com.liberty.settings;
 
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
-import com.liberty.settings.util.Helpers;
+import com.liberty.settings.util.CMDProcessor;
 
 public class MainActivity extends PreferenceActivity  {
 	
@@ -22,14 +20,11 @@ public class MainActivity extends PreferenceActivity  {
     	
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.main);
-        
-        final PackageManager pm = getPackageManager();
-        final PreferenceCategory pc = (PreferenceCategory) getPreferenceScreen().findPreference("general");
 
-        PreferenceScreen ps = (PreferenceScreen)findPreference("dsp_manager");
-        if (!Helpers.isPackageInstalled("com.bel.android.dspmanager", pm)) {        	 
-     		pc.removePreference(ps);
-        }
+        PreferenceScreen ps = (PreferenceScreen)findPreference("mod_version");
+        String mod = new CMDProcessor().sh.runWaitFor("getprop ro.modversion").stdout;
+        if (mod == null) mod = "Liberty ROM";
+        ps.setSummary(mod);
         
     }
 

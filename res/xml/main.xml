@@ -12,10 +12,16 @@
 			<intent android:action="android.intent.action.MAIN"
 				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.Performance" />
 		</PreferenceScreen>
-		<PreferenceScreen android:key="dsp_manager" android:title="DSP Manager"
-			android:summary="A stand alone equalizer">
+		<PreferenceScreen android:key="tools" android:title="@string/pt_tools"
+			android:summary="@string/ps_tools">
 			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="com.bel.android.dspmanager" android:targetClass="com.bel.android.dspmanager.activity.DSPManager" />
+				android:targetPackage="com.liberty.settings" android:targetClass="com.liberty.settings.Tools" />
+		</PreferenceScreen>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="Build Information"
+		android:key="general">
+		<PreferenceScreen android:key="mod_version"
+			style="?android:preferenceInformationStyle" android:title="@string/pt_mod_version">
 		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="General Settings"
+		android:key="general">
+		<PreferenceScreen android:key="spare_parts" android:title="@string/pt_spare_parts"
+			android:summary="@string/ps_spare_parts">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.android.spare_parts" android:targetClass="com.android.spare_parts.SpareParts" />
+		</PreferenceScreen>
+		<PreferenceScreen android:key="dev_tools" android:title="@string/pt_dev_tools"
+			android:summary="@string/ps_dev_tools">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.android.development" android:targetClass="com.android.development.Development" />
+		</PreferenceScreen>
+		<PreferenceScreen android:key="testing_menu" android:title="@string/pt_testing_menu"
+			android:summary="@string/ps_testing_menu">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.android.settings" android:targetClass="com.android.settings.TestingSettings" />
+		</PreferenceScreen>
+		<PreferenceScreen android:key="dsp_manager" android:title="@string/pt_dsp_manager"
+			android:summary="@string/ps_dsp_manager">
+			<intent android:action="android.intent.action.MAIN"
+				android:targetPackage="com.bel.android.dspmanager" android:targetClass="com.bel.android.dspmanager.activity.DSPManager" />
+		</PreferenceScreen>
+	</PreferenceCategory>
+</PreferenceScreen>
