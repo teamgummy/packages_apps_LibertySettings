@@ -4,7 +4,7 @@
 
 	<!-- Dialog Titles -->
 	<string name="dt_free_memory">Minfree Taskkiller</string>
-	
+
 	<!-- Preference Categories -->
 	<string name="prefcat_cpu">Set CPU</string>
 	<string name="prefcat_free_memory">Free Memory</string>
@@ -21,6 +21,7 @@
 	<!-- Customization -->
 	<string name="pt_liberty_customizer">Liberty Customizer</string>
 	<string name="pt_lockscreen">Lockscreen Settings</string>
+	<string name="pt_ui_status_bar">Status Bar</string>
 	<string name="pt_pulldown_text">Pulldown Text</string>
 	<!-- Tools -->
 	<string name="pt_spare_parts">Spare Parts</string>
@@ -46,15 +47,19 @@
 	<string name="pt_set_min">Min cpu</string>
 	<string name="pt_set_gov">Scaling governor</string>
 	<string name="pt_cpu_boot">Set at boot</string>
-	
+
 	<!-- Preference Summaries -->
 	<!-- Main -->
-	<string name="ps_performance">Set cpu, free memory &amp; customize start-up settings.</string>
-	<string name="ps_customization">Customize the lockscreen &amp; status bar. Install blur/aosp apps with Liberty Customizer</string>
+	<string name="ps_performance">Set cpu, free memory &amp; customize start-up
+		settings.</string>
+	<string name="ps_customization">Customize the lockscreen &amp; status bar. Install
+		blur/aosp apps with Liberty Customizer</string>
 	<string name="ps_tools">Various system tools</string>
 	<!-- Customization -->
 	<string name="ps_liberty_customizer">Customize the ROM to your liking</string>
-	<string name="ps_lockscreen">Change lockscreen styles and manage widgets</string>
+	<string name="ps_lockscreen">Change lockscreen styles and manage widgets
+	</string>
+	<string name="ps_ui_status_bar">Customize the status bar</string>
 	<string name="ps_pulldown_text">Change the text in the pulldown bar.</string>
 	<!-- Tools -->
 	<string name="ps_spare_parts">Various tweaks and customization</string>
@@ -63,7 +68,8 @@
 	<string name="ps_testing_menu">Phone info, battery info, usage statistics</string>
 	<!-- Start up tweaks -->
 	<string name="ps_init_d">Configure tweaks that are run at boot
-		(init.d)</string>
+		(init.d)
+	</string>
 	<string name="ps_enable_init_d">Enable/disabe start-up tweaks</string>
 	<string name="ps_zipalign">zipalign any unaligned apps on each boot</string>
 	<string name="ps_enable_sd_boost">Enable/disable SD card speed boost</string>
@@ -83,9 +89,9 @@
 	<string name="ps_free_memory">Amount of ram the minfree taskkiller will keep |
 		Current: %s</string>
 	<string name="ps_free_memory_boot">Apply the amount above at boot</string>
-	
+
 	<!-- Toast Messages -->
 	<string name="toast_min_max_error01">Max cpu cannot be lower than min cpu</string>
 	<string name="toast_min_max_error02">Min cpu cannot be higher than max cpu</string>
-	
+
 </resources>

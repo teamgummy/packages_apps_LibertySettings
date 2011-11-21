@@ -46,6 +46,8 @@ public class Customizer extends PreferenceActivity implements OnPreferenceClickL
 		ps = (PreferenceScreen)findPreference("customizer");
 		if (!Helpers.isPackageInstalled("com.liberty.customizer", pm)) {        	 
 			pc.removePreference(ps);
+			pc.removePreference(
+					(PreferenceScreen)findPreference("ui_status_bar"));
 		}
 
 		((PreferenceScreen)findPreference("pulldown_text"))
