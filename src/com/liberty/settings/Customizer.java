@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.liberty.settings.util.Helpers;
 public class Customizer extends PreferenceActivity implements OnPreferenceClickListener {
 
 	public static SharedPreferences preferences;
+	private PackageManager mPackageManager;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -35,19 +37,24 @@ public class Customizer extends PreferenceActivity implements OnPreferenceClickL
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.customizer);
 
-		final PackageManager pm = getPackageManager();
+		mPackageManager = getPackageManager();
 		final PreferenceCategory pc = (PreferenceCategory) getPreferenceScreen().findPreference("general");
 
 		PreferenceScreen ps = (PreferenceScreen)findPreference("lockscreen");
-		if (!Helpers.isPackageInstalled("com.liberty.parts", pm)) {        	 
+		if (!Helpers.isPackageInstalled("com.liberty.parts", mPackageManager)) {        	 
 			pc.removePreference(ps);
 		}
 
-		ps = (PreferenceScreen)findPreference("customizer");
-		if (!Helpers.isPackageInstalled("com.liberty.customizer", pm)) {        	 
-			pc.removePreference(ps);
-			pc.removePreference(
-					(PreferenceScreen)findPreference("ui_status_bar"));
+		if (!Helpers.isPackageInstalled("com.liberty.customizerFree", mPackageManager)
+				&& !Helpers.isPackageInstalled("com.liberty.customizer", mPackageManager)) {
+			final String customizerKeys[] = {"customizer", "ui_status_bar", "theme_manager"};
+			for (final String key : customizerKeys) {
+				ps = (PreferenceScreen)findPreference(key);
+				pc.removePreference(ps);
+			}
+		} else {
+			ps = (PreferenceScreen)findPreference("theme_manager");
+			ps.setOnPreferenceClickListener(this);
 		}
 
 		((PreferenceScreen)findPreference("pulldown_text"))
@@ -97,6 +104,14 @@ public class Customizer extends PreferenceActivity implements OnPreferenceClickL
 				}
 			})
 			.show();
+		} else if (key.equals("theme_manager")) {
+			String pkgName = "com.liberty.customizerFree";
+			if (Helpers.isPackageInstalled("com.liberty.customizer", mPackageManager)) {
+				pkgName = "com.liberty.customizer";
+			}
+			final Intent intent = new Intent();
+			intent.setClassName(pkgName, pkgName + ".ListThemes");
+			startActivity(intent);
 		}
 		return false;
 	}

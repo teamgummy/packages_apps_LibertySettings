@@ -23,6 +23,7 @@
 	<string name="pt_lockscreen">Lockscreen Settings</string>
 	<string name="pt_ui_status_bar">Status Bar</string>
 	<string name="pt_pulldown_text">Pulldown Text</string>
+	<string name="pt_theme_manager">Theme Manager</string>
 	<!-- Tools -->
 	<string name="pt_spare_parts">Spare Parts</string>
 	<string name="pt_dev_tools">Dev Tools</string>
@@ -61,6 +62,7 @@
 	</string>
 	<string name="ps_ui_status_bar">Customize the status bar</string>
 	<string name="ps_pulldown_text">Change the text in the pulldown bar.</string>
+	<string name="ps_theme_manager">Install custom themes for Liberty ROM</string>
 	<!-- Tools -->
 	<string name="ps_spare_parts">Various tweaks and customization</string>
 	<string name="ps_dev_tools">Tools for developers and advanced users</string>
