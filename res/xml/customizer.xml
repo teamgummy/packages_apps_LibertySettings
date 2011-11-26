@@ -5,7 +5,7 @@
 		<PreferenceScreen android:key="customizer" android:title="@string/pt_liberty_customizer"
 			android:summary="@string/ps_liberty_customizer">
 			<intent android:action="android.intent.action.MAIN"
-				android:targetPackage="com.liberty.customizer" android:targetClass="com.liberty.customizer.MainActivity" />
+				android:targetPackage="com.liberty.customizerFree" android:targetClass="com.liberty.customizerFree.MainActivity" />
 		</PreferenceScreen>
 		<PreferenceScreen android:key="theme_manager" android:title="@string/pt_theme_manager"
 			android:summary="@string/ps_theme_manager">
