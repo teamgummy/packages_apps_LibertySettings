@@ -7,7 +7,9 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.util.Log;
 
 import com.liberty.settings.util.CMDProcessor;
@@ -91,6 +93,12 @@ public class Performance extends PreferenceActivity implements OnSharedPreferenc
 		mFreeMem = (ListPreference) findPreference(KEY_MINFREE);
 		mFreeMem.setValue(closestValue);
 		mFreeMem.setSummary(getString(R.string.ps_free_memory, minFree+"mb"));
+
+		PreferenceScreen ps = (PreferenceScreen)findPreference("volt_control");
+		if (!new File(VoltageControlActivity.MV_TABLE0).exists()) {        	 
+			((PreferenceCategory) getPreferenceScreen().findPreference("cpu"))
+			.removePreference(ps);
+		}
 
 		doneLoading = true;
 	}
