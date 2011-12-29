@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Liberty Settings</string>
+	<!-- this needs to be changed back to Liberty Settings -->
+
+	<string name="app_name">Performance Settings</string>
 
 	<!-- Dialog Titles -->
 	<string name="dt_free_memory">Minfree Taskkiller</string>
@@ -95,5 +97,16 @@
 	<!-- Toast Messages -->
 	<string name="toast_min_max_error01">Max cpu cannot be lower than min cpu</string>
 	<string name="toast_min_max_error02">Min cpu cannot be higher than max cpu</string>
+
+	<!-- list_voltage -->
+	<string name="freq">Frequency</string>
+	<string name="current">mV current</string>
+	<string name="saved">mV saved</string>
+
+	<!-- voltage -->
+	<string name="error_values">Error getting values</string>
+	<string name="set_boot">Set On Boot</string>
+	<string name="apply_values">Apply Values</string>
+
 
 </resources>
