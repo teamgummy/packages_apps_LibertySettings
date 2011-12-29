@@ -11,11 +11,12 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.liberty.settings.util.CMDProcessor;
 import com.liberty.settings.util.Helpers;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class InitD extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 
@@ -91,13 +92,13 @@ public class InitD extends PreferenceActivity implements OnSharedPreferenceChang
 		{
 			final boolean initDEnabled = sharedPreferences.getBoolean(KEY_ENABLE_INITD, true);
 			Helpers.getMount("rw");
-			if (initDEnabled && !new File("/system/usr/bin/pm_init.sh").exists())
+			if (initDEnabled && !new File("/system/etc/init_trigger.enabled").exists())
 			{
-				new CMDProcessor().su.runWaitFor("busybox mv /system/usr/bin/pm_init.bak /system/usr/bin/pm_init.sh");
+				new CMDProcessor().su.runWaitFor("busybox mv /system/etc/init_trigger.disabled /system/etc/init_trigger.enabled");
 			}
-			else if (!initDEnabled && !new File("/system/usr/bin/pm_init.bak").exists())
+			else if (!initDEnabled && !new File("/system/etc/init_trigger.disabled").exists())
 			{
-				new CMDProcessor().su.runWaitFor("busybox mv /system/usr/bin/pm_init.sh /system/usr/bin/pm_init.bak");
+				new CMDProcessor().su.runWaitFor("busybox mv /system/etc/init_trigger.enabled /system/etc/init_trigger.disabled");
 			}
 			Helpers.getMount("ro");
 		}
@@ -199,7 +200,7 @@ public class InitD extends PreferenceActivity implements OnSharedPreferenceChang
 	{
 		if (key.equals(KEY_ENABLE_INITD))
 		{
-			return new File("/system/usr/bin/pm_init.sh").exists();
+			return new File("/system/etc/init_trigger.enabled").exists();
 		}
 		else
 		{
