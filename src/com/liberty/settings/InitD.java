@@ -11,6 +11,7 @@ import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.liberty.settings.util.CMDProcessor;
@@ -45,7 +46,7 @@ public class InitD extends PreferenceActivity implements OnSharedPreferenceChang
 
 		super.onCreate(savedInstanceState);
 		
-		MainActivity.preferences.registerOnSharedPreferenceChangeListener(this);
+		PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
 		addPreferencesFromResource(R.xml.init_d);
 
 		cfg = new File("/system/etc/liberty.cfg");

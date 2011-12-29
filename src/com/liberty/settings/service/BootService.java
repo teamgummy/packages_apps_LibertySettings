@@ -1,14 +1,18 @@
 package com.liberty.settings.service;
 
 import java.io.File;
+import java.util.List;
 
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.IBinder;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.liberty.settings.Voltage;
+import com.liberty.settings.VoltageControlActivity;
 import com.liberty.settings.util.CMDProcessor;
 
 public class BootService extends Service {
@@ -44,11 +48,25 @@ public class BootService extends Service {
 							cmd.su.runWaitFor("busybox echo " + gov + " > " + CUR_GOV.replace("cpu0", "cpu1"));
 						}
 					}
-				}				
+				}		
 				if (preferences.getBoolean("free_memory_boot", false)) {
 					final String values = preferences.getString("free_memory", null);
 					if (!values.equals(null)) {
 						cmd.su.runWaitFor("busybox echo " + values + " > /sys/module/lowmemorykiller/parameters/minfree");
+					}
+				}
+				if (preferences.getBoolean(VoltageControlActivity.KEY_APPLY_BOOT, false)) {
+					final List<Voltage> volts = VoltageControlActivity.getVolts(preferences);
+					final StringBuilder sb = new StringBuilder();
+					String logInfo = "Setting Volts: ";
+					for (final Voltage volt : volts) {
+						sb.append(volt.getSavedMV() + " ");
+						logInfo += volt.getFreq() + "=" + volt.getSavedMV() + " ";
+					}
+					Log.i(TAG, logInfo);
+					new CMDProcessor().su.runWaitFor("busybox echo " + sb.toString() + " > " + VoltageControlActivity.MV_TABLE0);
+					if (new File(VoltageControlActivity.MV_TABLE1).exists()) {
+						new CMDProcessor().su.runWaitFor("busybox echo " + sb.toString() + " > " + VoltageControlActivity.MV_TABLE1);
 					}
 				}
 			}
